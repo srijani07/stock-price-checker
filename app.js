@@ -37,12 +37,17 @@ function clickHandler() {
         }
 
         else if(parseInt(purchasePrice.value) > parseInt(currentPrice.value)) {
-            document.body.style.backgroundColor = "#E5E7EB";
+            
             var loss = totalCostPrice-totalSellingPrice;
             var lossPercent = (loss*100)/totalCostPrice;
             outputArea.innerHTML = "You made a loss of : "+lossPercent.toFixed(2)+"%, which is Rs. "+loss;
-            imgHappy.style.display = "none"
-            imgSad.style.display = "block"
+            imgHappy.style.display = "none";
+            imgSad.style.display = "none";
+            if(lossPercent > 50) {
+                document.body.style.backgroundColor = "#E5E7EB";
+                imgHappy.style.display = "none";
+                imgSad.style.display = "block";
+            }
         }
 
         else {
